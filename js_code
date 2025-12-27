@@ -1,0 +1,62 @@
+// Product Data Array
+const products = [
+  {
+    name: "Parker Jotter Standard",
+    color: "Classic Black",
+    price: 270,
+    rating: 4.5,
+    image: "images/pen.jpg",
+    deal: true
+  },
+  {
+    name: "Cello Butterflow",
+    color: "Ocean Blue",
+    price: 120,
+    rating: 4.2,
+    image: "images/pen.jpg", 
+    deal: false
+  },
+  {
+    name: "Reynolds Trimax",
+    color: "Bright Red",
+    price: 150,
+    rating: 4.4,
+    image: "images/pen.jpg",
+    deal: true
+  },
+  {
+    name: "Uniball Eye Roller",
+    color: "Midnight Blue",
+    price: 450,
+    rating: 4.8,
+    image: "images/pen.jpg",
+    deal: false
+  }
+];
+
+const container = document.getElementById("products");
+
+// Function to render products
+products.forEach(product => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>Color: ${product.color}</p>
+      <p>⭐ ${product.rating} / 5.0</p>
+      <p class="price">₹${product.price}</p>
+      ${product.deal ? `<span class="deal">🔥 DEAL OF THE DAY</span>` : ""}
+      <button class="buy-now" onclick="buyProduct('${product.name}')">Buy Now</button>
+    </div>
+  `;
+});
+
+// Action when Buy Now is clicked
+function buyProduct(name) {
+  alert("Success! " + name + " has been added to your shopping cart. 🛒");
+}
+
+// Action for Dark Mode Toggle
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
